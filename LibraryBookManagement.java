@@ -32,7 +32,6 @@ public class LibraryBookManagement {
         Scanner sc = new Scanner(System.in);
         LibraryBookManagement lib = new LibraryBookManagement();
 
-        // Input book details
         System.out.print("Enter Book Title: ");
         String title = sc.nextLine();
 
@@ -44,14 +43,13 @@ public class LibraryBookManagement {
 
         System.out.print("Is book available? (true/false): ");
         boolean isAvailable = sc.nextBoolean();
-
-        // Input ratings
+        
         System.out.print("Enter number of ratings: ");
         int n = sc.nextInt();
 
         if (n == 0) {
             System.out.println("No ratings available!");
-            return; // stop program
+            return; 
         }
 
         int[] ratings = new int[n];
@@ -60,10 +58,7 @@ public class LibraryBookManagement {
             ratings[i] = sc.nextInt();
         }
 
-        // Display book info
         lib.displayBookInfo(title, author, id, isAvailable);
-
-        // Display ratings
         System.out.println("\n===== RATINGS =====");
         for (int i = 0; i < n; i++) {
             System.out.println("Rating " + (i + 1) + " → " + ratings[i]);
@@ -72,7 +67,6 @@ public class LibraryBookManagement {
             }
         }
 
-        // Calculate and display stats
         int total = lib.calculateTotalRatings(ratings);
         double average = lib.calculateAverageRating(ratings);
 
